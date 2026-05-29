@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaley Yuen — Content Creator & Digital Marketer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=Noto+Serif+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f9f7fa;
+        --ink: #433258;
+        --warm-mid: #7a7085;
+        --accent: #5b2d8e;
+        --accent-light: #7b4db8;
+        --accent-pale: #ede6f7;
+        --soft-border: #e4ddf0;
+        --highlight: #f0eaf9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* ─── NAV ─────────────────────────────────── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 3rem;
+        background: rgba(249, 247, 250, 0.88);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--soft-border);
+      }
+      nav .logo {
+        font-family: "Space Mono", monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+      }
+      nav ul a {
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--warm-mid);
+        transition: color 0.2s;
+      }
+      nav ul a:hover {
+        color: var(--ink);
+      }
+
+      /* ─── HERO ───────────────────────────────── */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-bottom: 1px solid var(--soft-border);
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        width: 100%;
+        max-width: 1100px;
+        height: 100%;
+        padding: 2rem 3rem;
+        gap: 3rem;
+      }
+      .hero-left,
+      .hero-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+      .polaroid-stack {
+        position: relative;
+        width: min(100%, 352px);
+        flex-shrink: 0;
+      }
+      .polaroid {
+        background: #fff;
+        padding: 15px 15px 55px;
+        border: 1px solid #e8e0f0;
+        width: 100%;
+      }
+      .polaroid-back {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        transform: rotate(7deg) translate(10px, 12px);
+        box-shadow:
+          0 6px 28px rgba(91, 45, 142, 0.1),
+          0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+      .polaroid-front {
+        position: relative;
+        z-index: 1;
+        transform: rotate(-4deg);
+        box-shadow:
+          0 8px 40px rgba(91, 45, 142, 0.15),
+          0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .polaroid img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        max-width: 480px;
+      }
+      .hero-name {
+        font-family: "Noto Serif Display", serif;
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        line-height: 1.05;
+        color: var(--ink);
+        font-weight: 400;
+      }
+      .hero-title {
+        font-family: "Space Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        line-height: 1.7;
+        margin: 0;
+      }
+      .hero-scroll-cue {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        text-decoration: none;
+        color: var(--warm-mid);
+        font-family: "Space Mono", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+        animation: hero-scroll-bob 2.2s ease-in-out infinite;
+      }
+      .hero-scroll-cue:hover {
+        color: var(--accent);
+      }
+      .hero-scroll-cue svg {
+        opacity: 0.7;
+      }
+      @keyframes hero-scroll-bob {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(7px);
+        }
+      }
+
+      /* ─── SHARED ─────────────────────────────── */
+      .section-wrap {
+        padding: 6rem 3rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        line-height: 1.1;
+        color: var(--ink);
+        margin-bottom: 3.5rem;
+      }
+      .full-divider {
+        width: 100%;
+        height: 1px;
+        background: var(--soft-border);
+      }
+
+      /* ─── EXPERIENCES ────────────────────────── */
+      .experiences-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        border: 1px solid var(--soft-border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .exp-card {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.2rem;
+        border-right: 1px solid var(--soft-border);
+        transition: background 0.25s;
+      }
+      .exp-card:last-child {
+        border-right: none;
+      }
+      .exp-card:hover {
+        background: var(--highlight);
+      }
+      .exp-logo-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .exp-logo-link {
+        position: relative;
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid var(--soft-border);
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .exp-logo-link::after {
+        content: "↗";
+        position: absolute;
+        top: 5px;
+        right: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.92);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        box-shadow: 0 1px 4px rgba(91, 45, 142, 0.15);
+      }
+      .exp-logo-wrap:hover .exp-logo-link {
+        transform: scale(1.08);
+        box-shadow: 0 10px 28px rgba(91, 45, 142, 0.18);
+        border-color: var(--accent-light);
+      }
+      .exp-logo-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 8px;
+        display: block;
+      }
+      .exp-logo-cue {
+        font-family: "Space Mono", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+        transition: color 0.2s ease;
+      }
+      .exp-logo-wrap:hover .exp-logo-cue {
+        color: var(--ink);
+      }
+      .exp-role {
+        font-family: "Space Mono", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .exp-company {
+        font-family: "DM Serif Display", serif;
+        font-size: 1rem;
+        color: var(--ink);
+        margin-top: 0.15rem;
+      }
+      .exp-desc {
+        font-size: 0.82rem;
+        color: var(--warm-mid);
+        line-height: 1.6;
+        font-weight: 300;
+      }
+
+      /* ─── INSTAGRAM SECTION ──────────────────── */
+      .instagram-scroll-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--soft-border) transparent;
+      }
+      .instagram-phones {
+        display: flex;
+        gap: 1.8rem;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 1rem 0;
+      }
+      .phone-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .phone-wrapper.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .phone-wrapper:nth-child(2) {
+        transition-delay: 0.12s;
+      }
+      .phone-wrapper:nth-child(3) {
+        transition-delay: 0.24s;
+      }
+      .phone-handle {
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--warm-mid);
+      }
+      .phone-frame {
+        width: 200px;
+        height: 400px;
+        background: var(--ink);
+        border-radius: 36px;
+        padding: 12px 8px;
+        position: relative;
+        box-shadow:
+          0 20px 60px rgba(91, 45, 142, 0.2),
+          0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .phone-frame::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 22px;
+        background: var(--ink);
+        border-radius: 0 0 14px 14px;
+        z-index: 5;
+      }
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 28px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .ig-screenshot {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .ig-header {
+        padding: 28px 10px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        background: #fff;
+        border-bottom: 0.5px solid #eee;
+      }
+      .ig-handle-top {
+        font-family: "Space Mono", monospace;
+        font-size: 0.6rem;
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .ig-stats {
+        display: flex;
+        gap: 12px;
+        margin-top: 6px;
+      }
+      .ig-stat {
+        text-align: center;
+      }
+      .ig-stat-num {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--ink);
+        display: block;
+      }
+      .ig-stat-label {
+        font-size: 0.55rem;
+        color: #888;
+      }
+      .ig-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #eee;
+        flex: 1;
+      }
+      .ig-cell {
+        background: var(--highlight);
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ig-cell:nth-child(odd) {
+        background: #e8e0f0;
+      }
+      .ig-cell:nth-child(3n) {
+        background: #ddd5ee;
+      }
+      .ig-cell span {
+        font-size: 1rem;
+        opacity: 0.5;
+      }
+
+      /* ─── CONTENT SECTION ────────────────────── */
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .content-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .content-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .content-card:nth-child(2) {
+        transition-delay: 0.1s;
+      }
+      .content-card:nth-child(3) {
+        transition-delay: 0.2s;
+      }
+      .content-phone {
+        display: block;
+        width: 100%;
+        aspect-ratio: 9/16;
+        background: var(--ink);
+        border-radius: 28px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 16px 48px rgba(91, 45, 142, 0.18);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .content-phone:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 64px rgba(91, 45, 142, 0.28);
+      }
+      .content-embed {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        pointer-events: none;
+        background: #000;
+      }
+      .content-play-hint {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: rgba(0, 0, 0, 0.12);
+        transition: background 0.25s ease;
+      }
+      .content-phone:hover .content-play-hint {
+        background: rgba(0, 0, 0, 0.28);
+      }
+      .play-btn {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+      }
+      .content-phone:hover .play-btn {
+        transform: scale(1.1);
+      }
+      .play-btn svg {
+        margin-left: 3px;
+      }
+      .content-watch-label {
+        font-family: "Space Mono", monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 700;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+      }
+      .content-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .content-views {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.4rem;
+        color: var(--ink);
+      }
+      .content-views span {
+        display: block;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 400;
+        color: var(--warm-mid);
+        margin-top: -2px;
+      }
+      .content-tag {
+        font-family: "Space Mono", monospace;
+        font-size: 0.65rem;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+      }
+
+      /* ─── MY IMPACT ──────────────────────────── */
+      .impact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .impact-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .impact-stat-row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+        border-bottom: 1px solid var(--soft-border);
+        padding-bottom: 1.2rem;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .impact-stat-row.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .impact-stat-row:nth-child(2) {
+        transition-delay: 0.1s;
+      }
+      .impact-num {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1;
+        color: var(--ink);
+      }
+      .impact-num-label {
+        font-size: 0.9rem;
+        color: var(--warm-mid);
+        font-weight: 300;
+        line-height: 1.3;
+      }
+
+      /* platform icons row */
+      .platform-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        align-items: center;
+      }
+      .platform-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+      }
+
+      /* analytics composite */
+      .impact-screenshots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+      .impact-analytics-img {
+        width: 125%;
+        height: auto;
+        display: block;
+        margin-left: -12.5%;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(91, 45, 142, 0.18);
+      }
+
+      /* ─── REBRAND PROJECT ────────────────────── */
+      .rebrand-section {
+        padding-top: 5rem;
+      }
+      .rebrand-heading {
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: 400;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        margin-bottom: 2rem;
+      }
+      .rebrand-showcase {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.07);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+        position: relative;
+      }
+      .rebrand-showcase:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 52px rgba(91, 45, 142, 0.16);
+      }
+      .rebrand-showcase img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .rebrand-showcase-hint {
+        position: absolute;
+        bottom: 14%;
+        right: 6%;
+        font-family: "DM Sans", sans-serif;
+        font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.88);
+        padding: 0.35rem 0.65rem;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .rebrand-showcase:hover .rebrand-showcase-hint {
+        opacity: 1;
+      }
+
+      /* ─── CONTACT ────────────────────────────── */
+      #contact-section {
+        padding: 6rem 3rem 8rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      .contact-copy {
+        max-width: 420px;
+      }
+      .contact-copy .section-title {
+        margin-bottom: 1.25rem;
+      }
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .contact-details a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--soft-border);
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .contact-details a:hover {
+        color: var(--accent);
+        border-color: var(--accent-light);
+      }
+      .contact-line {
+        font-size: 0.78rem;
+        line-height: 1.55;
+        color: var(--warm-mid);
+        font-weight: 400;
+      }
+      .contact-line strong,
+      .contact-link-label {
+        font-family: "Space Mono", monospace;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: inline-block;
+      }
+      .contact-link-label {
+        border-bottom: 1px solid var(--soft-border);
+      }
+      .contact-link-label:hover {
+        color: var(--ink);
+        border-color: var(--accent-light);
+      }
+      .contact-carousel-wrap {
+        position: relative;
+        width: 100%;
+        min-height: 280px;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          #000 12%,
+          #000 88%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          #000 12%,
+          #000 88%,
+          transparent 100%
+        );
+      }
+      .contact-carousel-wrap::before,
+      .contact-carousel-wrap::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 18%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .contact-carousel-wrap::before {
+        left: 0;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          90deg,
+          var(--cream) 0%,
+          rgba(249, 247, 250, 0.4) 60%,
+          transparent 100%
+        );
+      }
+      .contact-carousel-wrap::after {
+        right: 0;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          270deg,
+          var(--cream) 0%,
+          rgba(249, 247, 250, 0.4) 60%,
+          transparent 100%
+        );
+      }
+      .contact-carousel-track {
+        display: flex;
+        gap: 1.25rem;
+        width: max-content;
+        animation: contact-carousel-scroll 28s linear infinite;
+      }
+      .contact-carousel-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes contact-carousel-scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .contact-carousel-slide {
+        flex-shrink: 0;
+        width: 200px;
+        height: 260px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--soft-border);
+        box-shadow: 0 8px 32px rgba(91, 45, 142, 0.12);
+      }
+      .contact-carousel-slide .slide-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(67, 50, 88, 0.45);
+      }
+      .contact-carousel-slide:nth-child(5n + 1) .slide-placeholder {
+        background: linear-gradient(145deg, #e8e0f0, #d4c8e8);
+      }
+      .contact-carousel-slide:nth-child(5n + 2) .slide-placeholder {
+        background: linear-gradient(145deg, #ddd5ee, #c8b8e0);
+      }
+      .contact-carousel-slide:nth-child(5n + 3) .slide-placeholder {
+        background: linear-gradient(145deg, #f0eaf9, #e4ddf0);
+      }
+      .contact-carousel-slide:nth-child(5n + 4) .slide-placeholder {
+        background: linear-gradient(145deg, #d8cce8, #c4b4dc);
+      }
+      .contact-carousel-slide:nth-child(5n) .slide-placeholder {
+        background: linear-gradient(145deg, #ede6f7, #ddd5ee);
+      }
+
+      /* ─── FOOTER ─────────────────────────────── */
+      footer {
+        border-top: 1px solid var(--soft-border);
+        padding: 2.2rem 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      footer .f-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 1rem;
+        color: var(--ink);
+      }
+      footer .f-copy {
+        font-family: "Space Mono", monospace;
+        font-size: 0.62rem;
+        color: var(--warm-mid);
+        letter-spacing: 0.1em;
+      }
+
+      /* ─── SCROLL ANIM ────────────────────────── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────── */
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+        nav ul {
+          gap: 1.2rem;
+        }
+        .section-wrap,
+        #contact-section {
+          padding: 4rem 1.5rem;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          padding: 1.5rem;
+          gap: 2rem;
+        }
+        .polaroid-stack {
+          width: min(88vw, 352px);
+        }
+        .polaroid-back {
+          transform: rotate(5deg) translate(8px, 10px);
+        }
+        .polaroid-front {
+          transform: rotate(-2deg);
+        }
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+        .contact-carousel-wrap {
+          min-height: 220px;
+        }
+        .experiences-grid {
+          grid-template-columns: 1fr;
+        }
+        .exp-card {
+          border-right: none;
+          border-bottom: 1px solid var(--soft-border);
+        }
+        .content-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .impact-layout {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        footer {
+          flex-direction: column;
+          gap: 0.8rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="logo">Kaley Yuen</div>
+      <ul>
+        <li><a href="#experiences">Experience</a></li>
+        <li><a href="#instagram-section">Channels</a></li>
+        <li><a href="#content-section">Content</a></li>
+        <li><a href="#impact-section">Impact</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="polaroid-stack">
+            <div class="polaroid polaroid-back" aria-hidden="true"></div>
+            <div class="polaroid polaroid-front">
+              <img src="assets/hero-polaroid.png" alt="Kaley Yuen" />
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-text">
+            <h1 class="hero-name">Kaley Yuen</h1>
+            <p class="hero-title">Content Creator<br />and Digital Marketer</p>
+          </div>
+        </div>
+      </div>
+      <a href="#experiences" class="hero-scroll-cue" aria-label="Scroll to experiences">
+        <span>Scroll</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- EXPERIENCES -->
+    <section id="experiences" class="section-wrap">
+      <p class="section-label">Where I've worked</p>
+      <h2 class="section-title">My experiences</h2>
+      <div class="experiences-grid fade-up">
+        <div class="exp-card">
+          <div class="exp-logo-wrap">
+            <a
+              class="exp-logo-link"
+              href="https://www.instagram.com/joindayout/reels/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit joindayout on Instagram"
+              title="Click to visit joindayout on Instagram"
+            >
+              <img src="assets/logo-joindayout.png" alt="joindayout logo" />
+            </a>
+            <span class="exp-logo-cue">Click to visit →</span>
+          </div>
+          <div>
+            <p class="exp-role">Digital Marketing Intern</p>
+            <p class="exp-company">joindayout</p>
+          </div>
+          <p class="exp-desc">Content creation for Startups</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-logo-wrap">
+            <a
+              class="exp-logo-link"
+              href="https://www.instagram.com/acrossuhub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Across U-hub on Instagram"
+              title="Click to visit Across U-hub on Instagram"
+            >
+              <img src="assets/logo-acrossuhub.png" alt="Across U-hub logo" />
+            </a>
+            <span class="exp-logo-cue">Click to visit →</span>
+          </div>
+          <div>
+            <p class="exp-role">Project Manager Assistant</p>
+            <p class="exp-company">Acros u-hub</p>
+          </div>
+          <p class="exp-desc">Content creation for Non profit organizations</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-logo-wrap">
+            <a
+              class="exp-logo-link"
+              href="https://www.instagram.com/uw_ux/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit UW/UX on Instagram"
+              title="Click to visit UW/UX on Instagram"
+            >
+              <img src="assets/logo-uwux.png" alt="UW/UX logo" />
+            </a>
+            <span class="exp-logo-cue">Click to visit →</span>
+          </div>
+          <div>
+            <p class="exp-role">Content Creator</p>
+            <p class="exp-company">UW/UX</p>
+          </div>
+          <p class="exp-desc">Content creation for student clubs</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="full-divider"></div>
+
+    <!-- INSTAGRAM CHANNELS -->
+    <div id="instagram-section" class="section-wrap">
+      <p class="section-label">Social channels</p>
+      <h2 class="section-title">Accounts I've grown</h2>
+      <div class="instagram-scroll-wrapper">
+        <div class="instagram-phones">
+          <div class="phone-wrapper">
+            <span class="phone-handle">@joindayout</span>
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img
+                  class="ig-screenshot"
+                  src="assets/ig-joindayout.png"
+                  alt="joindayout Instagram profile"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="phone-wrapper" style="margin-top: -20px">
+            <span class="phone-handle">@uw_ux</span>
+            <div class="phone-frame" style="width: 220px; height: 440px">
+              <div class="phone-screen">
+                <img
+                  class="ig-screenshot"
+                  src="assets/ig-uwux.png"
+                  alt="UW/UX Instagram profile"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="phone-wrapper">
+            <span class="phone-handle">@acrossuhub</span>
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img
+                  class="ig-screenshot"
+                  src="assets/ig-acrossuhub.png"
+                  alt="Across U-hub Instagram profile"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-divider"></div>
+
+    <!-- CONTENT CREATED -->
+    <div id="content-section" class="section-wrap">
+      <p class="section-label">Results</p>
+      <h2 class="section-title">Some content I created!</h2>
+      <div class="content-grid">
+        <div class="content-card">
+          <a
+            class="content-phone"
+            href="https://www.instagram.com/p/DSvlmm7Dg3s/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch joindayout post on Instagram"
+            title="Watch on Instagram"
+          >
+            <iframe
+              class="content-embed"
+              src="https://www.instagram.com/p/DSvlmm7Dg3s/embed"
+              title="joindayout Instagram post"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+            <div class="content-play-hint">
+              <div class="play-btn">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="var(--ink)"
+                >
+                  <path d="M5 3l14 9-14 9V3z" />
+                </svg>
+              </div>
+              <span class="content-watch-label">Watch on Instagram</span>
+            </div>
+          </a>
+          <div class="content-meta">
+            <div class="content-views">63k <span>views</span></div>
+            <div class="content-tag">@joindayout</div>
+          </div>
+        </div>
+        <div class="content-card">
+          <a
+            class="content-phone"
+            href="https://www.instagram.com/reel/DPo4x_bESQ3/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch UW/UX reel on Instagram"
+            title="Watch on Instagram"
+          >
+            <iframe
+              class="content-embed"
+              src="https://www.instagram.com/reel/DPo4x_bESQ3/embed"
+              title="UW/UX Instagram reel"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+            <div class="content-play-hint">
+              <div class="play-btn">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="var(--ink)"
+                >
+                  <path d="M5 3l14 9-14 9V3z" />
+                </svg>
+              </div>
+              <span class="content-watch-label">Watch on Instagram</span>
+            </div>
+          </a>
+          <div class="content-meta">
+            <div class="content-views">11k <span>views</span></div>
+            <div class="content-tag">@uw_ux</div>
+          </div>
+        </div>
+        <div class="content-card">
+          <a
+            class="content-phone"
+            href="https://www.instagram.com/reel/DNRSUndu1vo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch Across U-hub reel on Instagram"
+            title="Watch on Instagram"
+          >
+            <iframe
+              class="content-embed"
+              src="https://www.instagram.com/reel/DNRSUndu1vo/embed"
+              title="Across U-hub Instagram reel"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+            <div class="content-play-hint">
+              <div class="play-btn">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="var(--ink)"
+                >
+                  <path d="M5 3l14 9-14 9V3z" />
+                </svg>
+              </div>
+              <span class="content-watch-label">Watch on Instagram</span>
+            </div>
+          </a>
+          <div class="content-meta">
+            <div class="content-views">6k <span>views</span></div>
+            <div class="content-tag">@acrossuhub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-divider"></div>
+
+    <!-- REBRAND PROJECT -->
+    <section id="rebrand-section" class="section-wrap rebrand-section">
+      <h2 class="section-title">A Rebrand project</h2>
+      <a
+        class="rebrand-showcase"
+        href="https://kaleyyyyuen.framer.website/michelina"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="View Michelina rebrand case study"
+      >
+        <img
+          src="assets/rebrand-michelina-showcase.png"
+          alt="Michelina's rebrand project — before and after comparison"
+        />
+        <span class="rebrand-showcase-hint"
+          >Click to view design process →</span
+        >
+      </a>
+    </section>
+
+    <div class="full-divider"></div>
+
+    <!-- MY IMPACT -->
+    <div id="impact-section" class="section-wrap">
+      <p class="section-label">Analytics</p>
+      <h2 class="section-title">My impact</h2>
+
+      <div class="impact-layout">
+        <!-- Left: big numbers + platforms -->
+        <div class="impact-stats">
+          <div class="impact-stat-row">
+            <div class="impact-num">400k</div>
+            <div class="impact-num-label">Impressions</div>
+          </div>
+          <div class="impact-stat-row">
+            <div class="impact-num">200k</div>
+            <div class="impact-num-label">organic views</div>
+          </div>
+          <div class="platform-icons">
+            <!-- Instagram -->
+            <div
+              class="platform-icon"
+              style="
+                background: linear-gradient(
+                  45deg,
+                  #f09433,
+                  #e6683c,
+                  #dc2743,
+                  #cc2366,
+                  #bc1888
+                );
+                padding: 2px;
+              "
+            >
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1.5"
+                />
+                <circle cx="17.5" cy="6.5" r="1" fill="white" />
+              </svg>
+            </div>
+            <!-- YouTube -->
+            <div class="platform-icon" style="background: #ff0000">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.5 5 12 5 12 5s-4.5 0-7 .1c-.4.1-1.3.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8C6.5 19 12 19 12 19s4.5 0 7-.2c.4-.1 1.3-.1 2-.9.6-.6.8-2 .8-2S22 14.4 22 12.8v-1.5C22 9.6 21.8 8 21.8 8zM9.9 14.9V9.1l5.4 2.9-5.4 2.9z"
+                />
+              </svg>
+            </div>
+            <!-- TikTok -->
+            <div class="platform-icon" style="background: #000">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M19.6 3h-3.1v11.6c0 1.6-1.3 2.9-2.9 2.9s-2.9-1.3-2.9-2.9 1.3-2.9 2.9-2.9c.3 0 .5 0 .8.1V8.6c-.3 0-.5-.1-.8-.1-3.3 0-5.9 2.7-5.9 5.9s2.7 5.9 5.9 5.9 5.9-2.7 5.9-5.9V8.2c1 .7 2.2 1.1 3.5 1.1V6.2c-2-.1-3.4-1.5-3.4-3.2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: analytics screenshots -->
+        <div class="impact-screenshots">
+          <img
+            class="impact-analytics-img fade-up"
+            src="assets/impact-analytics.png"
+            alt="YouTube and Instagram analytics showing impressions, reach, and reel insights"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="full-divider"></div>
+
+    <!-- CONTACT -->
+    <div id="contact-section">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="section-label">Get in touch</p>
+          <h2 class="section-title">Contact me</h2>
+          <div class="contact-details">
+            <p class="contact-line">
+              <strong>Email</strong>
+              <a href="mailto:kaleyuen@gmail.com">kaleyuen@gmail.com</a>
+            </p>
+            <p class="contact-line">
+              <a
+                class="contact-link-label"
+                href="https://www.linkedin.com/in/kaley-yuen-674372330"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </p>
+            <p class="contact-line">
+              <a
+                class="contact-link-label"
+                href="https://kaleyyyyuen.framer.website/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Design portfolio</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="contact-carousel-wrap" aria-hidden="true">
+          <div class="contact-carousel-track">
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 1</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 2</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 3</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 4</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 5</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 1</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 2</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 3</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 4</div>
+            </div>
+            <div class="contact-carousel-slide">
+              <div class="slide-placeholder">Image 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="f-name">Kaley Yuen</div>
+      <div class="f-copy">© 2026 — All rights reserved</div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((el) => {
+            if (el.isIntersecting) el.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(
+          ".fade-up, .phone-wrapper, .content-card, .impact-stat-row, .impact-analytics-img",
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const id = link.getAttribute("href");
+          if (!id || id === "#") return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          const navOffset = 72;
+          const startY = window.scrollY;
+          const endY =
+            target.getBoundingClientRect().top + window.scrollY - navOffset;
+          const distance = endY - startY;
+          const duration = 850;
+          let startTime = null;
+
+          const step = (time) => {
+            if (startTime === null) startTime = time;
+            const progress = Math.min((time - startTime) / duration, 1);
+            window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+        });
+      });
+    </script>
+  </body>
+</html>

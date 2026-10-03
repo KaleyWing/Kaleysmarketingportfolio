@@ -810,8 +810,28 @@
         transform: translateY(0);
       }
 
+      /* ─── CASE STUDIES ───────────────────────── */
+    .cs-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem 2rem; }
+    .cs-card { text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:1rem; }
+    .cs-card:first-child { grid-column:span 2; }
+    .cs-img { position:relative; aspect-ratio:4/3; border-radius:14px; overflow:hidden; display:flex; align-items:flex-end; padding:1.5rem; transition:transform .45s ease, border-radius .45s ease; }
+    .cs-card:first-child .cs-img { aspect-ratio:16/7; }
+    .cs-client { font-family:"DM Serif Display",serif; font-size:clamp(1.6rem,4vw,3rem); color:rgba(255,255,255,.9); }
+    .cs-view { position:absolute; top:1.2rem; right:1.2rem; background:#fff; color:var(--ink); font-family:"Space Mono",monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; padding:.5rem .8rem; border-radius:99px; opacity:0; transform:translateY(-8px); transition:.3s ease; }
+    .cs-card:hover .cs-img { transform:scale(.98); border-radius:22px; }
+    .cs-card:hover .cs-view { opacity:1; transform:none; }
+    .cs-info { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+    .cs-title { font-family:"DM Serif Display",serif; font-weight:400; font-size:1.35rem; margin-top:.25rem; transition:color .2s; }
+    .cs-card:hover .cs-title { color:var(--accent); }
+    .cs-tags, .cs-year { font-family:"Space Mono",monospace; font-size:.65rem; color:var(--warm-mid); letter-spacing:.05em; }
+
+
+      
       /* ─── RESPONSIVE ─────────────────────────── */
       @media (max-width: 768px) {
+        .cs-grid { grid-template-columns:1fr; }
+        .cs-card:first-child { grid-column:auto; }
+
         nav {
           padding: 1rem 1.5rem;
         }
@@ -863,6 +883,7 @@
     <nav>
       <div class="logo">Kaley Yuen</div>
       <ul>
+        <li><a href="#work">Work</a></li>li>
         <li><a href="#experiences">Experience</a></li>
         <li><a href="#instagram-section">Channels</a></li>
         <li><a href="#content-section">Content</a></li>
@@ -967,6 +988,14 @@
 
     <div class="full-divider"></div>
 
+<!-- CASE STUDIES (cards are generated from case-studies.js) -->
+<section id="work" class="section-wrap">
+  <p class="section-label">Selected work</p>
+  <h2 class="section-title">Case studies</h2>
+  <div class="cs-grid" id="cs-grid"></div>
+</section>
+
+    
     <!-- INSTAGRAM CHANNELS -->
     <div id="instagram-section" class="section-wrap">
       <p class="section-label">Social channels</p>
@@ -1278,7 +1307,19 @@
       <div class="f-copy">© 2026 — All rights reserved</div>
     </footer>
 
-    <script>
+    <script src="case-studies.js"></script>
+<script>
+  document.getElementById("cs-grid").innerHTML = CASE_STUDIES.map((c) => `
+    <a class="cs-card fade-up" href="case-study.html?id=${c.id}">
+      <div class="cs-img" style="background:${c.image ? `url(${c.image}) center/cover` : c.color}">
+        <span class="cs-client">${c.meta.Client}</span><span class="cs-view">View case study</span>
+      </div>
+      <div class="cs-info">
+        <div><p class="cs-tags">c.tags.join("/")</p><h3class="cs-title">{c.title}</h3></div>
+        <span class="cs-year">${c.meta.Year}</span>
+      </div>
+    </a>`).join("");
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((el) => {
